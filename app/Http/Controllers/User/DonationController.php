@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\Donation;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Traits\MediaUploadTrait;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DonationController extends Controller
 {
+    use MediaUploadTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,9 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        return view('index', [
+            'donations' => Donation::latest('id')->get()
+        ]);
     }
 
     /**
@@ -35,7 +43,36 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id = Auth::id();
+
+        $request->validate([
+            'story' => 'required|string|min:50|',
+            'amount' => 'required|numeric',
+            'image' => 'required|mimes:jpeg,jpg,png'
+        ]);
+
+        if($request->has('image')){
+
+            $image = $request->file('image');
+
+            $username = Auth::user()->firstname . '_' . Auth::user()->lastname;
+
+            $name = Str::slug($username . '_' . date("d-m-Y-h-i-s"));
+            $filename = $name . '.' . $image->getClientOriginalExtension();
+
+            $folder = 'public/uploads/images';
+            
+            $this->uploadMedia($image, $folder, $filename);
+        }
+
+        Donation::create([
+            'user_id' => $user_id,
+            'story' => $request->story,
+            'amount' => $request->amount,
+            'image' => $filename
+        ]);
+
+        return redirect('/pending')->with('message', 'Donation Request Sent!');
     }
 
     /**

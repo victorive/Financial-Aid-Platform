@@ -20,9 +20,7 @@ use App\Http\Controllers\User\DashboardController;
 |
 */
 
-Route::view('/', 'index', [
-    'donations' => Donation::latest('id')->get()
-])->name('home');
+Route::get('/', [DonationController::class, 'index'])->name('home');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -30,6 +28,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware(['auth'])->group(function(){
+    Route::view('/pending', 'user.status.pending');
+
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::controller(DashboardController::class)->group(function() {
@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::get('/askfordonation', [DonationController::class, 'create']);
-    Route::post('/donation', [DonationController::class, 'store']);
+    Route::post('/askfordonation', [DonationController::class, 'store']);
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){

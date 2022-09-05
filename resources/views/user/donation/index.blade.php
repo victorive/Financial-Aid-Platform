@@ -8,7 +8,7 @@
 
             @foreach($donations as $donation)
             <div class="rounded-lg shadow-lg shadow-gray-500/50">
-                <img class="object-cover w-full h-20" src="{{ asset('images/illustration.png') }}" alt="donation image"/>
+                <img class="object-cover w-full h-40" src="{{ asset('storage/uploads/images/'. $donation->image) }}" alt="donation image"/>
                 <div class="px-6 py-4">
                     <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-700">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</h4>
                     <p class="text-sm leading-normal text-gray-700 line-clamp-3">{{ $donation->story }}</p>

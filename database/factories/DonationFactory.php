@@ -17,7 +17,7 @@ class DonationFactory extends Factory
             'user_id' => 1,
             'story' => $this->faker->paragraph(),
             'amount' => $this->faker->numberBetween(10000, 100000),
-            'image' => $this->faker->image('public/storage/images', 640, 480)
+            'image' => 'charity.webp'
         ];
     }
 }

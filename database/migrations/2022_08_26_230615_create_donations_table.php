@@ -17,7 +17,7 @@ class CreateDonationsTable extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
-            $table->string('story');
+            $table->text('story');
             $table->integer('amount')->comment('NGN (₦)');
             $table->string('image')->nullable();
             $table->tinyInteger('status')->default('0')->comment('0 = Pending, 1 = Accepted, 2 = Rejected');

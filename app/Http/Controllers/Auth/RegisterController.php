@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'phone'=>'required|min:11',
             'address'=>'required|string',
             'password'=>'required|confirmed'
-            ]);
+        ]);
 
         User::create([
             'firstname'=>$request->firstname,
@@ -33,11 +33,7 @@ class RegisterController extends Controller
             'password'=>Hash::make($request->password)
         ]);
 
-        auth()->attempt([
-            'email'=>$request->email,
-            'password'=>$request->password
-        ]);
-
+        auth()->attempt($request->only(['email', 'password']));
 
         return redirect()->route('dashboard');
     }
