@@ -1,5 +1,5 @@
-@extends('layouts.user')
-@section('title', "$pageTitle". "'s Fundraiser")
+@extends('layouts.app')
+@section('title', "$pageTitle" . "'s Fundraiser")
 @section('content')
 
     <article class="px-4 py-24 mx-auto max-w-7xl">
@@ -13,16 +13,16 @@
         </a>
 
         <div class="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
-            <img src="{{ $donation->image ? asset('storage/uploads/images/' . $donation->image) : asset('images/charity.webp') }}" class="object-cover w-full h-64 rounded-lg" alt="{{ auth()->user()->firstname}}'s fundraiser">
+            <img src="{{ $donation->image ? asset('storage/uploads/images/' . $donation->image) : asset('images/charity.webp') }}" class="object-cover w-full h-64 rounded-lg" alt="{{ $donation->user->firstname}}'s fundraiser">
 
-            <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 md:text-4xl" itemprop="headline" title="{{ auth()->user()->firstname}}'s fundraiser">
-                {{ auth()->user()->firstname . " " . auth()->user()->lastname }} is requesting for a donation
+            <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 md:text-4xl" itemprop="headline" title="{{ $donation->user->firstname}}'s fundraiser">
+                {{ $donation->user->firstname . " " . $donation->user->lastname }} is requesting for a donation
             </h1>
 
             <div class="flex items-center">
-                <img class="h-10 w-10 rounded-full" src="{{ asset('images/avatar.png') }}" alt="Photo of {{ auth()->user()->firstname}}">
+                <img class="h-10 w-10 rounded-full" src="{{ asset('images/avatar.png') }}" alt="Photo of {{ $donation->user->firstname}}">
                 <div class="ml-2">
-                    <h2 class="text-sm font-semibold">{{ auth()->user()->firstname . " " . auth()->user()->lastname }}</h2>
+                    <h2 class="text-sm font-semibold">{{ $donation->user->firstname . " " . $donation->user->lastname }}</h2>
                     <p class="text-sm text-gray-500">{{ $donation->created_at->format('d-M-Y') }}</p>
                 </div>
             </div>

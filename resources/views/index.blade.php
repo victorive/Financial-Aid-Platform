@@ -15,32 +15,26 @@
 </div>
 </section>
 
-<section id="donate" class="px-4 py-10 mt-[65px] mx-auto">
+<section id="donate" class="px-6 md:px-12 py-10 mt-[65px] mx-auto">
     <h1 class="mb-1 text-3xl font-extrabold leading-normal">Active donation campaigns</h1>
     <p class="mb-12 text-lg text-gray-500">Simply donate by clicking the button next to the person</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-16 lg:gap-x-24 gap-y-20">
+    <div class="mb-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-16 lg:gap-x-12 gap-y-20">
 
         @foreach($donations as $donation)
-        <div class="rounded-lg shadow-lg shadow-gray-500/50">
-            <img class="object-cover w-full h-40" src="{{ asset('storage/uploads/images/' . $donation->image) }}" alt="donation image"/>
-            <div class="px-6 py-4">
-                <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-700">{{ $donation->user->firstname }} {{ $donation->user->lastname }}</h4>
-                <p class="leading-normal text-gray-700 text-sm line-clamp-3">{{ $donation->story }}</p>
-                <p class="leading-normal font-semibold text-sm">Amount Needed: ₦{{ $donation->amount }}</p>
-            </div>
+        <div class="w-full rounded-lg shadow-lg shadow-gray-500/50 duration-500 hover:scale-105">
+            <a href="{{ url('donations/view/' . $donation->slug) }}">
+                <img class="object-cover w-full h-40" src="{{ $donation->image ? asset('storage/uploads/images/'. $donation->image) : asset('images/charity.webp') }}" alt="donation image"/>
+                <div class="px-6 py-4">
+                    <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-700">{{ $donation->user->firstname }} {{ $donation->user->lastname }}</h4>
+                    <p class="leading-normal text-gray-700 text-sm line-clamp-3">{{ $donation->story }}</p>
+                    <p class="leading-normal font-semibold text-sm">Amount Needed: ₦{{ $donation->amount }}</p>
+                </div>
+            </a>
         </div>
         @endforeach
     </div>
 
-    <div class="py-4 flex justify-center" aria-label="page navigation">
-        <ul class="inline-flex items-center">
-            <li><button class="h-10 px-5 text-[#24207F] transition-colors duration-150 bg-white rounded-l-lg focus:shadow-outline hover:bg-[#c9c8eb]">Prev</button></li>
-            <li><button class="h-10 px-5 text-white transition-colors duration-150 bg-[#24207F] focus:shadow-outline">1</button></li>
-            <li><button class="h-10 px-5 text-[#24207F] transition-colors duration-150 bg-white focus:shadow-outline hover:bg-[#c9c8eb]">2</button></li>
-            <li><button class="h-10 px-5 text-[#24207F] transition-colors duration-150 bg-white focus:shadow-outline hover:bg-[#c9c8eb]">3</button></li>
-            <li><button class="h-10 px-5 text-[#24207F] transition-colors duration-150 bg-white rounded-r-lg focus:shadow-outline hover:bg-[#c9c8eb]">Next</button></li>
-        </ul>
-    </div>
+    {{ $donations->links() }}
 </section>
 @endsection

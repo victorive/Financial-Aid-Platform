@@ -6,6 +6,7 @@
         <title>Fin Aid - @yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!--maximum-scale=1, user-scalable=no-->
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body class="min-h-screen">
@@ -54,8 +55,11 @@
         @yield('content')
 
         <footer class="px-4 md:px-7 mx-auto border-t border-t-gray-300">
-            <div class="block md:flex md:justify-between md:items-center py-5">
-                <p class="text-sm text-gray-600">Built by OVI for use by all!</p>
+            <div class="flex justify-between items-center py-5">
+                <a href="{{ url('/') }}" class="flex items-center space-x-1">
+                    <img class="w-10 md:w-6 h-10 md:h-6" src="{{ asset('images/fin-aid.svg') }}" alt="fin-aid">
+                    <h2 class="text-xl md:text-lg font-bold">Fin-Aid</h2>
+                </a>
                 <p class="text-sm text-gray-600">Copyright &copy; {{ date('Y') }} OVI</p>
             </div>
         </footer>

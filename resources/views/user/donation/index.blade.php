@@ -4,28 +4,30 @@
     </a>
 
     @if($donations->count())
-        <div class="grid grid-cols-1 mt-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-16 lg:gap-x-24 gap-y-20">
+        <div class="mb-4 grid grid-cols-1 mt-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-16 lg:gap-x-12 gap-y-20">
 
             @foreach($donations as $donation)
-            <div class="rounded-lg shadow-lg shadow-gray-500/50">
-                <img class="object-cover w-full h-40" src="{{ asset('storage/uploads/images/'. $donation->image) }}" alt="donation image"/>
-                <div class="px-6 py-4">
-                    <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-700">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</h4>
-                    <p class="text-sm leading-normal text-gray-700 line-clamp-3">{{ $donation->story }}</p>
-                    <p class="text-sm font-semibold leading-normal">Amount Needed: ₦{{ $donation->amount }}</p>
-                    @switch($donation->status)
-                        @case(1)
-                            <a class="text-sm text-green-500">Approved</a>
-                            @break
+            <div class="rounded-lg shadow-lg shadow-gray-500/50 duration-500 hover:scale-105">
+                <a href="{{ url('donations/' . $donation->slug) }}">
+                    <img class="object-cover w-full h-40" src="{{ $donation->image ? asset('storage/uploads/images/'. $donation->image) : asset('images/charity.webp') }}" alt="donation image"/>
+                    <div class="px-6 py-4">
+                        <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-700">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</h4>
+                        <p class="text-sm leading-normal text-gray-700 line-clamp-3">{{ $donation->story }}</p>
+                        <p class="text-sm font-semibold leading-normal">Amount Needed: ₦{{ $donation->amount }}</p>
+                        @switch($donation->status)
+                            @case(1)
+                                <a class="text-sm text-green-500">Approved</a>
+                                @break
 
-                        @case(2)
-                            <a class="text-sm text-red-500">Rejected</a>
-                            @break
+                            @case(2)
+                                <a class="text-sm text-red-500">Rejected</a>
+                                @break
 
-                        @default
-                            <a class="text-sm text-yellow-500">Pending</a>
-                    @endswitch
-                </div>
+                            @default
+                                <a class="text-sm text-yellow-500">Pending</a>
+                        @endswitch
+                    </div>
+                </a>
             </div>
             @endforeach
         </div>

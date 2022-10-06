@@ -11,7 +11,7 @@
 
         <label for="story" class="block">
             <span class="block mb-1 text-xs font-medium text-gray-700">*What are you seeking donation for? (Keep it short and concise)</span>
-            <textarea id="" name="story" class="w-full bg-white border rounded block text-sm px-3 py-2 focus:border-[#24207F] @error('story') border-red-500 @enderror" rows="5" placeholder="Tell us your story"></textarea>
+            <textarea id="" name="story" class="w-full bg-white border rounded block text-sm px-3 py-2 focus:border-[#24207F] @error('story') border-red-500 @enderror" rows="5" placeholder="Tell us your story">{{ old('story') }}</textarea>
         </label>
         @error('story')
             <span class="block mb-1 text-xs font-medium text-red-500">{{ $message }}</span>

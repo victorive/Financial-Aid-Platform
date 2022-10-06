@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\DonationController;
 use App\Http\Controllers\User\DashboardController;
 
@@ -20,7 +21,8 @@ use App\Http\Controllers\User\DashboardController;
 |
 */
 
-Route::get('/', [DonationController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/donations/view/{donation:slug}', [HomeController::class, 'show']);
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -41,6 +43,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/askfordonation', [DonationController::class, 'create']);
     Route::post('/askfordonation', [DonationController::class, 'store']);
+    Route::get('/donations/{donation:slug}', [DonationController::class, 'show']);
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){

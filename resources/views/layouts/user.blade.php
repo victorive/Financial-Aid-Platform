@@ -17,7 +17,7 @@
                 </a>
 
                 <button id="profile-button" class="rounded-full p-0 inline-block text-center align-middle text-sm focus:border-2 focus:border-[#24207f]">
-                    <div class="h-5 w-5 text-sm max-h-[2rem] max-w-[2rem] min-h-[2rem] min-w-[2rem] rounded-full items-center justify-center relative">
+                    <div class="h-5 w-5 text-sm max-h-8 max-w-[2rem] min-h-[2rem] min-w-[2rem] rounded-full items-center justify-center relative">
                         <img src="{{ asset('images/avatar.png') }}" alt="Profile picture">
                     </div>
                 </button>
