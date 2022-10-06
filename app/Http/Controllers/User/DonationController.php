@@ -13,34 +13,11 @@ class DonationController extends Controller
 {
     use MediaUploadTrait;
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('index', [
-            'donations' => Donation::latest('id')->get()
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('user.donation.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $user_id = Auth::id();
@@ -61,13 +38,17 @@ class DonationController extends Controller
             $filename = $name . '.' . $image->getClientOriginalExtension();
 
             $folder = 'public/uploads/images';
-            
+
             $this->uploadMedia($image, $folder, $filename);
         }
+
+        $slug = substr($request->input('story'), 0, 42) . substr(Str::uuid(), 0, 8);
+        $slug = Str::slug($slug);
 
         Donation::create([
             'user_id' => $user_id,
             'story' => $request->story,
+            'slug' => $slug,
             'amount' => $request->amount,
             'image' => $filename
         ]);
@@ -75,46 +56,24 @@ class DonationController extends Controller
         return redirect('/pending')->with('message', 'Donation Request Sent!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Donation $donation)
     {
-        //
+        return view('user.donation.show', [
+            'pageTitle' => Auth::user()->firstname . " " . Auth::user()->lastname,
+            'donation' => $donation
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $user_id = Auth::id();
 
         return view('user.dashboard', [
-            'donations' => Donation::where('user_id', $user_id)->latest('id')->get()
+            'donations' => Donation::where('user_id', $user_id)->latest('id')->paginate(8)
         ]);
     }
 
