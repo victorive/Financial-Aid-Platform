@@ -22,23 +22,23 @@
                 <tbody class="flex-1">
                     <tr class="p-1 md:p-3 flex flex-col md:table-row w-full flex-wrap mt-2 md:mt-0 bg-[#ecebfc] md:bg-white shadow-md shadow-gray-500/50 md:shadow-none md:border-b md:border-b-gray-200">
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Name:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Name:</label>
                             <p class="md:text-center">Test Test</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Address:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Address:</label>
                             <p class="md:text-center">1 Test Street, WA</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Phone:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Phone:</label>
                             <p class="md:text-center">0123456789</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Email:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Email:</label>
                             <p class="md:text-center">test@test.com</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Password:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Password:</label>
                             <p class="md:text-center">New Password</p>
                         </td>
                         <td class="p-1 md:p-3 flex items-center justify-between md:table-cell">
@@ -52,31 +52,31 @@
 
                         <div class="relative">
                             <div id="crud-menu" class="absolute bg-white hidden flex-col rounded top-0 right-0 bottom-auto left-auto m-0 -translate-x-[20px] translate-y-[190px] md:translate-y-[80px] border-[1px] border-solid border-gray-200 w-24 p-2 z-10 ">
-                                <a href="{{ route('edit-user') }}" class="w-full relative flex items-center font-medium text-sm justify-center py-1 rounded hover:bg-[#e3f5e9]">Edit</a>
+                                <a href="{{ route('admin.edit-user') }}" class="w-full relative flex items-center font-medium text-sm justify-center py-1 rounded hover:bg-[#e3f5e9]">Edit</a>
                                 <a onclick="togglemodal()" class="cursor-pointer w-full relative flex items-center font-medium text-sm text-red-500 justify-center py-1 rounded hover:bg-red-200">Delete</a>
                             </div>
                         </div>
                     </tr>
-                    
+
                     <tr class="p-1 md:p-3 flex flex-col md:table-row w-full flex-wrap mt-2 md:mt-0 bg-[#ecebfc] md:bg-white shadow-md shadow-gray-500/50 md:shadow-none md:border-b md:border-b-gray-200">
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Name:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Name:</label>
                             <p class="md:text-center">Test Test</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Address:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Address:</label>
                             <p class="md:text-center">1 Test Street, WA</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Phone:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Phone:</label>
                             <p class="md:text-center">0123456789</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Email:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Email:</label>
                             <p class="md:text-center">test@test.com</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Password:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Password:</label>
                             <p class="md:text-center">New Password</p>
                         </td>
                         <td class="p-1 md:p-3 flex items-center justify-between md:table-cell">
@@ -98,23 +98,23 @@
 
                     <tr class="p-1 md:p-3 flex flex-col md:table-row w-full flex-wrap mt-2 md:mt-0 bg-[#ecebfc] md:bg-white  shadow-md shadow-gray-500/50 md:shadow-none md:border-b md:border-b-gray-200">
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Name:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Name:</label>
                             <p class="md:text-center">Test Test</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Address:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Address:</label>
                             <p class="md:text-center">1 Test Street, WA</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Phone:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Phone:</label>
                             <p class="md:text-center">0123456789</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Email:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Email:</label>
                             <p class="md:text-center">test@test.com</p>
                         </td>
                         <td class="p-1 md:p-3 text-sm flex items-center justify-between border-b border-b-gray-200 md:border-b-0 md:table-cell">
-                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Password:</label> 
+                            <label class="text-xs text-gray-500 uppercase font-semibold md:hidden">Password:</label>
                             <p class="md:text-center">New Password</p>
                         </td>
                         <td class="p-1 md:p-3 flex items-center justify-between md:table-cell">
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>

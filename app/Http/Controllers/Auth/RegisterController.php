@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class RegisterController extends Controller
 {
@@ -24,7 +26,7 @@ class RegisterController extends Controller
             'password'=>'required|confirmed'
         ]);
 
-        User::create([
+        $user = User::create([
             'firstname'=>$request->firstname,
             'lastname'=>$request->lastname,
             'email'=>$request->email,
@@ -33,8 +35,24 @@ class RegisterController extends Controller
             'password'=>Hash::make($request->password)
         ]);
 
+        event(new Registered($user));
+
         auth()->attempt($request->only(['email', 'password']));
 
+        return redirect()->route('home');
+    }
+
+    public function verifyEmail(EmailVerificationRequest $request){
+
+        $request->fulfill();
+
         return redirect()->route('dashboard');
+    }
+
+    public function resendEmailVerification(Request $request){
+
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Verification link resent!');
     }
 }

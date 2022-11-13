@@ -6,6 +6,7 @@
         <title>Fin Aid - @yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
@@ -17,7 +18,7 @@
                 </a>
 
                 <svg id="menu-button" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer md:hidden block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                    
+
                 <div id="menu" class="hidden w-full md:w-auto md:flex items-center relative">
                     <ul class="pt-2 md:flex md:justify-between md:space-x-2">
                         <li><a href="{{ url('/') }}" class="px-3 py-2 hover:bg-[#c9c8eb] rounded-md text-sm block">Home</a></li>

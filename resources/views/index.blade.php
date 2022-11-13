@@ -6,7 +6,7 @@
     <div class="w-full mx-auto grid grid-cols-1 gap-0 md:grid-cols-12 lg:grid-cols-11 lg:gap-24 xl:w-11/12">
         <div class="col-auto text-left self-center md:col-span-6 lg:text-left">
             <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight md:tracking-normal leading-normal md:leading-none">Sapa is Real!</h1>
-            <p class="text-md md:text-lg text-gray-600 mb-5">So, here's a financial aid platform to support students going through financial hell. Kindly support this cause to help these students achieve their financial goals.</p>
+            <p class="text-md md:text-lg text-gray-600 mb-5">So, here's a financial aid platform to support students going through financial difficulties. Kindly support this cause to help these students achieve their financial goals.</p>
             <a href="#donate" class="w-full sm:w-auto bg-black hover:bg-[#24207f] rounded-lg font-medium text-white text-lg text-center align-middle py-2 px-6 leading-relaxed">Donate Now</a>
         </div>
         <div class="col-auto md:col-span-5">
