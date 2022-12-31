@@ -9,7 +9,7 @@
             @foreach($donations as $donation)
             <div class="rounded-lg shadow-lg shadow-gray-500/50 duration-500 hover:scale-105">
                 <a href="{{ url('donations/' . $donation->slug) }}">
-                    <img class="object-cover w-full h-40" src="{{ $donation->image ? asset('storage/uploads/images/'. $donation->image) : asset('images/charity.webp') }}" alt="donation image"/>
+                    <img class="object-cover w-full h-40" src="{{ $donation->image ? asset('storage/'. $donation->image) : asset('images/charity.webp') }}" alt="donation image"/>
                     <div class="px-6 py-4">
                         <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-700">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</h4>
                         <p class="text-sm leading-normal text-gray-700 line-clamp-3">{{ $donation->story }}</p>

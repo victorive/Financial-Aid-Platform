@@ -6,7 +6,7 @@ use Illuminate\Http\UploadedFile;
 
 trait MediaUploadTrait
 {
-    public function uploadMedia(UploadedFile $uploadedFile, $folder = null, $filename = null)
+    public function uploadMedia(UploadedFile $uploadedFile, $folder, $filename)
     {
         $file = $uploadedFile->storeAs($folder, $filename);
         

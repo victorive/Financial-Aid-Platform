@@ -13,7 +13,7 @@
         </a>
 
         <div class="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
-            <img src="{{ $donation->image ? asset('storage/uploads/images/' . $donation->image) : asset('images/charity.webp') }}" class="object-cover w-full h-64 rounded-lg" alt="{{ auth()->user()->firstname}}'s fundraiser">
+            <img src="{{ $donation->image ? asset('storage/' . $donation->image) : asset('images/charity.webp') }}" class="object-cover w-full h-64 rounded-lg" alt="{{ auth()->user()->firstname}}'s fundraiser">
 
             <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 md:text-4xl" itemprop="headline" title="{{ auth()->user()->firstname}}'s fundraiser">
                 {{ auth()->user()->firstname . " " . auth()->user()->lastname }} is requesting for a donation

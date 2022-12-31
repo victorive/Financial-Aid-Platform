@@ -58,10 +58,6 @@
         @enderror
 
         <div class="flex flex-col items-start justify-between sm:items-center sm:flex-row">
-          <label class="flex items-center">
-            <input type="checkbox">
-            <span class="block ml-2 text-xs font-medium cursor-pointer">Remember Me</span>
-          </label>
           <input type="submit" class="w-full sm:w-auto mt-5 bg-[#24207f] rounded-lg text-white text-sm text-center align-middle py-2 px-6 leading-relaxed sm:mt-0" value="Register">
         </div>
       </form>

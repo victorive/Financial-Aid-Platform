@@ -22,13 +22,16 @@ use App\Http\Controllers\Admin\DonationRequestController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/donations/view/{donation:slug}', [HomeController::class, 'show']);
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+Route::middleware(['guest'])->group(function(){
+    Route::get('/donations/view/{donation:slug}', [HomeController::class, 'show']);
+
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register']);
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+});
 
 Route::view('/email/verify', 'auth.verify-email')->name('verification.notice')->middleware('auth');
 Route::get('/email/verify/{id}/{hash}', [RegisterController::class, 'verifyEmail'])->middleware(['auth', 'signed'])->name('verification.verify');
